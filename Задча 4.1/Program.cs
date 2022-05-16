@@ -84,6 +84,7 @@ namespace Задча_4._1
                     i++;
                 }
             }
+            Console.Clear();
             //Вывод информации о студентах
             Console.WriteLine("   Студенты\n");
             for (int x = 0; x < count_stud; x++)
