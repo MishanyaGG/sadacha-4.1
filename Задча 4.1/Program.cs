@@ -27,8 +27,10 @@ namespace Задча_4._1
             Student[] stud = new Student[count_stud];
             Aspirant[] asp = new Aspirant[count_asp];
             string[] asp_2022 = new string[count_asp];
+            Student[] maxrang = new Student[count_stud];
             Facultet fac = new Facultet();
-            float max = float.MinValue;
+            double max = double.MinValue;
+            
             //Описание студентов
             for (int x = 0; x<count_stud; x++)
             {
@@ -44,6 +46,11 @@ namespace Задча_4._1
                 rang = float.Parse(Console.ReadLine());
                 Math.Round(rang, 0);
                 stud[x] = new Student(name, facultet_stud, god_post, rang);
+                if (stud[x].rang > max)
+                {
+                    max = stud[x].rang;
+                    maxrang[x] = stud[x];
+                }
             }
             
             for (int x = 0; x < count_asp; x++) //Описание аспирантов
@@ -103,6 +110,11 @@ namespace Задча_4._1
             for (int x = 0; x==i; x++)
             {
                 Console.WriteLine($"Аспиранты специанльности 05.13.11, которые заканчивают {tec_god}\n"+asp_2022[x]);
+            }
+            Console.WriteLine("Студенты с наивысшими рейтингами\n");
+            for (int x = 0; x < count_stud; x++)
+            {
+                maxrang[x].show();
             }
         }
     }
